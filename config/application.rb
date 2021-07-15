@@ -20,7 +20,9 @@ Bundler.require(*Rails.groups)
 module AwesomeEvents
   class Application < Rails::Application
     config.load_defaults 6.0
-
+    # タイムゾーン
     config.time_zone = "Tokyo"
+    # 言語のロケール
+    config.i18n.default_locale = :ja
   end
 end
