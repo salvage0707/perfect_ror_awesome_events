@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :owner, class_name: "User"
+  has_many :tickets, dependent: :destroy
 
   validates :name, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
@@ -11,7 +12,7 @@ class Event < ApplicationRecord
     return false unless user
     owner_id == user.id
   end
-  
+
   private 
 
   def start_at_should_be_before_end_at
